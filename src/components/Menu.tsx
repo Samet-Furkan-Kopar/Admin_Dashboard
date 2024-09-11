@@ -129,7 +129,7 @@ const Menu = () => {
                                 <Link
                                     key={index}
                                     href={item.href}
-                                    className="flex items-center justify-center lg:justify-start gap-4 text-gray-500 py-1"
+                                    className="flex items-center justify-center md:px-2 lg:justify-start gap-4 text-gray-500 py-1 rounded-md hover:bg-colorSkyLight"
                                 >
                                     <Image
                                         src={`/icons${item.icon}`}
@@ -147,5 +147,5 @@ const Menu = () => {
         </div>
     );
 };
-
+    
 export default Menu;
