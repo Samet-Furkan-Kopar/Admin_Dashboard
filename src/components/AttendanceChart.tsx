@@ -40,11 +40,12 @@ const data = [
         absent: 20,
     },
 ];
+
 const AttendanceChart = () => {
     return (
         <div className="bg-white rounded-lg p-4 h-full">
             <div className="flex items-center justify-between">
-                <h1 className="text-lg font-semibold">Attendance</h1>
+                <h1 className="text-lg font-semibold">Katılım</h1>
                 <Image src="/icons/moreDark.png" width={20} height={20} alt="attendance" />
             </div>
             <ResponsiveContainer width="100%" height="90%">
