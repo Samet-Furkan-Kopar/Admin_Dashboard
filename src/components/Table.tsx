@@ -14,7 +14,7 @@ const Table = ({
             <thead>
                 <tr className="text-left text-gray-500 text-sm">
                     {columns.map((column) => (
-                        <th key={column.accessor}>{column.header}</th>
+                        <th key={column.accessor} className={column?.className}>{column.header}</th>
                     ))}
                 </tr>
             </thead>
