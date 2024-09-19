@@ -82,7 +82,7 @@ const AnnouncementListPage = () => {
             <Table columns={columns} renderRow={renderRow} data={eventsData} />
             <Pagination />
         </div>
-    );
+    );  
 };
 
 export default AnnouncementListPage;
