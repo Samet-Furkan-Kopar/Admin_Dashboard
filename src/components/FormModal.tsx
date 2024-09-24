@@ -1,7 +1,21 @@
 "use client";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import React, { useState } from "react";
 import TeacherForm from "./forms/TeacherForm";
+import StudentForm from "./forms/StudentForm";
+
+// const TeacherForm = dynamic(() => import("./forms/TeacherForm"));
+// const StudentForm = dynamic(() => import("./forms/StudentForm"));
+//loadingi uzun sürüyor
+
+
+const forms: {
+    [key: string]: (type: "create" | "update", data?: any) => JSX.Element;
+} = {
+    teacher: (type, data) => <TeacherForm type={type} data={data} />,
+    student: (type, data) => <StudentForm type={type} data={data} />,
+};
 
 const FormModal = ({
     table,
@@ -28,19 +42,25 @@ const FormModal = ({
 }) => {
     const [open, setOpen] = useState(false);
     const size = type === "create" ? "w-8 h-8" : "w-7 h-7";
-    const bgColor = type === "create" ? "bg-colorYellow" : type === "update" ? "bg-colorSky" : "bg-colorPurple";
-const Form = () => {
-    return type === "delete" && id ? (
-        <form action="" className="p-4 flex flex-col gap-4">
-            <span className="text-center font-medium"> {table}ı silmek istediğinizden emin misiniz ? </span>
-            <button className="bg-red-700 text-white py-2 px-4 rounded-sm border-none w-max self-center">Sil</button>
-        </form>
-    )
-    : (
-        <TeacherForm type="create" />
-    )
-}
+    const bgColor =
+        type === "create" ? "bg-colorYellow" : type === "update" ? "bg-colorSky" : "bg-colorPurple";
 
+    const Form = () => {
+        return type === "delete" && id ? (
+            <form action="" className="p-4 flex flex-col gap-4">
+                <span className="text-center font-medium">
+                    {table}ı silmek istediğinizden emin misiniz ?
+                </span>
+                <button className="bg-red-700 text-white py-2 px-4 rounded-sm border-none w-max self-center">
+                    Sil
+                </button>
+            </form>
+        ) : type === "create" || type === "update" ? (
+            forms[table](type, data)
+        ) : (
+            "Form not found!"
+        );
+    };
 
     return (
         <>

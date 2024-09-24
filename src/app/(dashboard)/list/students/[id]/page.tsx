@@ -1,5 +1,6 @@
 import Announcements from "@/components/Announcements";
 import BigCalendar from "@/components/BigCalender";
+import FormModal from "@/components/FormModal";
 import Performance from "@/components/Performance";
 import Image from "next/image";
 import Link from "next/link";
@@ -22,6 +23,24 @@ const SingleStudentPage = () => {
                         </div>
                         <div className="w-2/3 flex flex-col justify-between gap-4">
                             <h1 className="text-xl font-semibold">SAMET FURKAN</h1>
+                            <FormModal
+                                table="student"
+                                type="update"
+                                data={{
+                                    id: 1,
+                                    username: "sametfurkan",
+                                    email: "awd@gmail.com",
+                                    password: "123456",
+                                    phone: "5446552711",
+                                    firstName: "Samet",
+                                    lastName: "Furkan",
+                                    bloodType: "0+",
+                                    dateOfBirth: "2000-01-01",
+                                    sex: "male",
+                                    img: "/icons/avatar.png",
+                                    address: "İstanbul / Türkiye",
+                                }}
+                            />
                             <p className="text-sm text-gray-500">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                             </p>
@@ -112,11 +131,21 @@ const SingleStudentPage = () => {
                 <div className="bg-white p-4 rounded-md">
                     <h1 className="text-xl font-semibold">Shortcuts</h1>
                     <div className="mt-4 flex gap-4  flex-wrap text-xs text-gray-500">
-                        <Link className="p-3 rounded-md bg-colorSkyLight" href="/">Student&apos;s Classes </Link>
-                        <Link className="p-3 rounded-md bg-colorPurpleLight" href="/">Student&apos;s Students </Link>
-                        <Link className="p-3 rounded-md bg-colorYellowLight" href="/">Student&apos;s Lessons </Link>
-                        <Link className="p-3 rounded-md bg-pink-50" href="/">Student&apos;s Exams </Link>
-                        <Link className="p-3 rounded-md bg-colorSkyLight" href="/">Student&apos;s Assignments </Link>
+                        <Link className="p-3 rounded-md bg-colorSkyLight" href="/">
+                            Student&apos;s Classes{" "}
+                        </Link>
+                        <Link className="p-3 rounded-md bg-colorPurpleLight" href="/">
+                            Student&apos;s Students{" "}
+                        </Link>
+                        <Link className="p-3 rounded-md bg-colorYellowLight" href="/">
+                            Student&apos;s Lessons{" "}
+                        </Link>
+                        <Link className="p-3 rounded-md bg-pink-50" href="/">
+                            Student&apos;s Exams{" "}
+                        </Link>
+                        <Link className="p-3 rounded-md bg-colorSkyLight" href="/">
+                            Student&apos;s Assignments{" "}
+                        </Link>
                     </div>
                 </div>
                 <Performance />

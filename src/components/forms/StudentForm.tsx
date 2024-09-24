@@ -30,7 +30,7 @@ const schema = z.object({
 });
 
 type Inputs = z.infer<typeof schema>;
-const TeacherForm = ({ type, data }: { type: "create" | "update"; data?: any }) => {
+const StudetForm = ({ type, data }: { type: "create" | "update"; data?: any }) => {
     const {
         register,
         handleSubmit,
@@ -45,7 +45,7 @@ const TeacherForm = ({ type, data }: { type: "create" | "update"; data?: any }) 
 
     return (
         <form className="flex flex-col gap-8" onSubmit={onSubmit}>
-            <h1 className="text-xl font-semibold">{ type === "update" ?  "Update Teacher" : "Create a new Teacher"}</h1>
+            <h1 className="text-xl font-semibold">{ type === "update" ?  "Update Student" : "Create a new Student"}</h1>
             <span className="text-xs text-gray-400 font-semibold">Authentication Information</span>
             {/* <div className="flex flex-col gap-2 w-full md:w-1/4">
                 <label className="text-xstext-gray-500">Username</label>
@@ -169,4 +169,4 @@ const TeacherForm = ({ type, data }: { type: "create" | "update"; data?: any }) 
     );
 };
 
-export default TeacherForm;
+export default StudetForm;
